@@ -95,69 +95,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 <input type="text" name="autor" class="form-control" id="autor" placeholder="digite o nome do autor">
                 <br>
                 <input type="submit" class="btn btn-success" value="Salvar">
-                
-    
-
     
                 <?php
-                
-                session_start();
-                if (!isset($_SESSION['user'])) {
-                    header("Location: index.php");
-                    exit();
-                }
-                require_once './teste.php';
-                $user = $_SESSION['user'];
-                //var_dump($user);
-                echo "</br>";
-                echo $_SESSION['matricula'];
-                echo "</br>";
-                echo $_SESSION['senha'];
-                echo "</br>";
-                echo $_SESSION['email'];
-                echo "</br>";
-                echo $_SESSION['nome'];
-                // if ($_POST) {
-
-                //     @$nome = $_POST['nome'];
-                //     @$matricula = $_POST['matricula'];
-                //     @$bibliotecas = $_POST['bibliotecas'];
-                //     @$data = $_POST['data'];
-                //     @$titulo = $_POST['titulo'];
-                //     @$autor = $_POST['autor'];
+                    session_start();
                     
-                //     // print_r($_POST);
-                                      
-                //     if (empty($nome) || empty($matricula) || empty($bibliotecas) ||empty($data)|| empty($titulo)|| empty($autor)) {
-                //         echo ('<div class = "alert alert-danger" role="alert"> Todos os campos são obrigatórios.</div>');
-                //     } else {
-                //         echo('<fieldset>');
-                //         echo ('<legend>');
-                //         echo ('Dados Cadastrados');
-                //         echo("<br>");
-                //         echo("Nome: ");
-                //         echo ($nome);
-                //         echo("<br>");
-                //         echo("matricula: ");
-                //         echo ($matricula);
-                //         echo("<br>");
-                //         echo("biblioteca: ");
-                //         echo($bibliotecas);
-                //         echo("<br>");
-                //         echo("titulo: ");
-                //         echo ($titulo);
-                //         echo("<br>");
-                //         echo("autor: ");
-                //         echo($autor);
-                //         echo("<br>");
-                //         echo("data: ");
-                //         echo($data);
-                //         echo("<br>");
-                //         echo('</legend>');
-                //         echo ('</fieldset>');
-                //     }
-                // }
-
+                    if (!isset($_SESSION['matricula'])) {
+                        header("Location: index.php");
+                        exit();
+                    }
+                    require_once './teste.php';
+                    echo "</br>";
+                    echo $_SESSION['matricula'];
+                    echo "</br>";
+                    echo $_SESSION['senha'];
+                    echo "</br>";
+                    echo $_SESSION['email'];
+                    echo "</br>";
+                    echo $_SESSION['nome'];
                 ?>
                  <?php
                include 'header.php';

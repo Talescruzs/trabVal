@@ -78,7 +78,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     echo ('<div class = " alert alert-danger" role="alert"> Todos os campos são obrigatórios');
                 } else{
                     if ($login->loginBanco($name, $senha)) {
-                        // $user->createUser($login->matriculaPassou, $login->senhaPassou, $login->emailPassou);
                         $_SESSION['matricula'] = $login->getUser()->matricula;
                         $_SESSION['email'] = $login->getUser()->email;
                         $_SESSION['senha'] = $login->getUser()->senha;
@@ -87,13 +86,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                         exit();
                     } 
                     else {
-                        // Usuário ou senha incorretos, exiba uma mensagem de erro
                         echo "Usuário ou senha incorretos. Tente novamente.";
                     }
-                
                 }
-
-                
             }
         ?>
         <?php

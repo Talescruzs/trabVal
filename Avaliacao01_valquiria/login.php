@@ -66,63 +66,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <?php
             include('teste.php');
             $login = new Login();
-            $user = new User();
     
-        // if ($_REQUEST) {
-        //     if (isset($_REQUEST['cod'])) {
-        //         $cod = $_REQUEST['cod'];
-        //         if ($cod == 'error') {
-        //             echo('<div class="d-grid">');
-        //             echo('<div class="alert alert-danger">');
-        //             echo('Usuário ou senha inválidos!');
-        //             echo('</div>');
-        //             echo ('</div>');
-        //     }else if($cod == '172'){
-        //         echo('<div class="d-grid">');
-        //         echo('<div class="alert alert-warning">');
-        //         echo('Sua sessão expirou!');
-        //         echo('</div>');
-        //         echo ('</div>');
-        //     }
-        // }
-        // }
-        if($_POST){
-            session_start();
+            if($_POST){
+                session_start();
 
-            @$name = $_POST['name'];
-            @$senha = $_POST['senha'];
-            
-            if(empty($name)||empty($senha)){
-                echo ('<div class = " alert alert-danger" role="alert"> Todos os campos são obrigatórios');
-            } else{
-                if ($login->loginBanco($name, $senha)) {
-                    // Usuário e senha válidos, redirecione para a página de sucesso
-                    // $user->createUser($login->matriculaPassou, $login->senhaPassou, $login->emailPassou);
-                    $_SESSION['matricula'] = $login->getUser()->matricula;
-                    $_SESSION['email'] = $login->getUser()->email;
-                    $_SESSION['senha'] = $login->getUser()->senha;
-                    $_SESSION['nome'] = $login->getUser()->nome;
-                    header("Location: pagina2.php");
-                    exit();
+                @$name = $_POST['name'];
+                @$senha = $_POST['senha'];
+                
+                if(empty($name)||empty($senha)){
+                    echo ('<div class = " alert alert-danger" role="alert"> Todos os campos são obrigatórios');
+                } else{
+                    if ($login->loginBanco($name, $senha)) {
+                        $_SESSION['matricula'] = $login->getUser()->matricula;
+                        $_SESSION['email'] = $login->getUser()->email;
+                        $_SESSION['senha'] = $login->getUser()->senha;
+                        $_SESSION['nome'] = $login->getUser()->nome;
+                        header("Location: pagina2.php");
+                        exit();
 
-                } 
-                else {
-                    // Usuário ou senha incorretos, exiba uma mensagem de erro
-                    echo "Usuário ou senha incorretos. Tente novamente.";
+                    } 
+                    else {
+                        echo "Usuário ou senha incorretos. Tente novamente.";
+                    }
+                
                 }
-            
+
+                
             }
-
-            
-        }
-         
-
-        // Verifique se o usuário e a senha coincidem com os dados armazenados
-    
-
-
         ?>
-        <!-- Link para a página de logout -->
         <?php
                include 'header.php';
         ?>

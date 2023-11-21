@@ -23,7 +23,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             }
         </style>
         <style>
-            /* Defina o estilo do corpo (body) para incluir a imagem de fundo */
             body {
                 background-image: url('img/livro.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho real da sua imagem */
                 background-size: cover; /* Isso faz com que a imagem cubra todo o fundo */
@@ -53,11 +52,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
 
 </div>
-
-
-      
         <form method="post" action="pagina2.php">
-            <br> 
+        <br> 
+            <?php
+                session_start();
+                
+                if (!isset($_SESSION['matricula'])) {
+                    header("Location: index.php");
+                    exit();
+                }
+                require_once './teste.php';
+                echo "</br>";
+                echo "<h1>Olá, ".$_SESSION['nome']."</h1>";
+                echo "</br>";
+                echo "<h2>Sua senha é ".$_SESSION['senha']."</h2>";
+                echo "</br>";
+                echo "<h2>Seu email é ".$_SESSION['email']."</h2>";
+                echo "</br>";
+                echo "<h2>Sua matricula é ".$_SESSION['matricula']."</h2>";
+                include 'header.php';
+            ?>
             </br> 
             <fieldset>
                 <br>
@@ -96,24 +110,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 <br>
                 <input type="submit" class="btn btn-success" value="Salvar">
     
-                <?php
-                    session_start();
-                    
-                    if (!isset($_SESSION['matricula'])) {
-                        header("Location: index.php");
-                        exit();
-                    }
-                    require_once './teste.php';
-                    echo "</br>";
-                    echo $_SESSION['matricula'];
-                    echo "</br>";
-                    echo $_SESSION['senha'];
-                    echo "</br>";
-                    echo $_SESSION['email'];
-                    echo "</br>";
-                    echo $_SESSION['nome'];
-                ?>
-                 <?php
-               include 'header.php';
-        ?>
+                
         

@@ -1,0 +1,28 @@
+/* styles.css */
+
+/* Estilo para a tabela com bordas arredondadas e tons de azul pastel no fundo */
+.table {
+    border-collapse: separate;
+    border-spacing: 0 8px; /* Ajuste o espaçamento entre as linhas */
+    border-radius: 10px; /* Borda arredondada */
+    background-color: #cfd9e8; /* Azul pastel 1 */
+}
+
+/* Estilo para as células da tabela com fundo branco */
+.table tbody tr {
+    background-color: white;
+    border-radius: 10px; /* Borda arredondada */
+}
+
+/* Estilo para o cabeçalho da tabela com fundo azul pastel */
+.table thead th {
+    background-color: #a7bae2; /* Azul pastel 3 */
+    color: white; /* Texto branco */
+}
+
+/* Estilo para ajustar a altura da imagem */
+.table tbody tr td img {
+    max-height: 240px;
+    max-width: 160px;
+}
+
